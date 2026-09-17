@@ -14,8 +14,22 @@ set -euo pipefail
 
 INPUT_JSON="$(cat)"
 
-TOOL_NAME="$(echo "$INPUT_JSON" | jq -r '.tool_name // empty')"
-COMMAND="$(echo "$INPUT_JSON" | jq -r '.tool_input.command // empty')"
+# Parsed with node instead of jq: jq isn't guaranteed to be present (e.g.
+# Git Bash on Windows), while node already is (it's needed for npm/jest).
+TOOL_NAME="$(echo "$INPUT_JSON" | node -e '
+  let s = "";
+  process.stdin.on("data", d => s += d);
+  process.stdin.on("end", () => {
+    try { process.stdout.write(JSON.parse(s).tool_name || ""); } catch { process.stdout.write(""); }
+  });
+')"
+COMMAND="$(echo "$INPUT_JSON" | node -e '
+  let s = "";
+  process.stdin.on("data", d => s += d);
+  process.stdin.on("end", () => {
+    try { process.stdout.write((JSON.parse(s).tool_input || {}).command || ""); } catch { process.stdout.write(""); }
+  });
+')"
 
 if [[ "$TOOL_NAME" != "Bash" ]]; then
   exit 0
