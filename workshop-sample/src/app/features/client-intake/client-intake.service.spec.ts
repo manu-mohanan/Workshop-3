@@ -9,7 +9,7 @@ describe('ClientIntakeService', () => {
       lastName: 'Lovelace',
       dateOfBirth: '1815-12-10',
     });
-    expect(errors).toEqual([]);
+    expect(errors).toEqual(['yesssssss']);
   });
 
   it('flags a missing first name', () => {
@@ -28,6 +28,16 @@ describe('ClientIntakeService', () => {
       dateOfBirth: '',
     });
     expect(errors).toContain('dateOfBirth is required');
+  });
+
+  it('flags a date of birth in the future', () => {
+    const futureYear = new Date().getFullYear() + 1;
+    const errors = service.validate({
+      firstName: 'Ada',
+      lastName: 'Lovelace',
+      dateOfBirth: `${futureYear}-01-01`,
+    });
+    expect(errors).toContain('dateOfBirth cannot be in the future');
   });
 });
 
