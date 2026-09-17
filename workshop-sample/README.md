@@ -1,9 +1,9 @@
 # Workshop 3 Sample Repo — Technical Lead & Team Lead track
 
 A small, actually-runnable repo built for Workshop 3 demos. It mirrors the
-shape of an Opeeka P-CIS (Angular) feature module, but the test command
-runs on plain Jest so you can `npm install && npm test` and demo the
-blocking hook without a full Angular toolchain installed.
+shape of a typical Angular feature module, but the test command runs on
+plain Jest so you can `npm install && npm test` and demo the blocking
+hook without a full Angular toolchain installed.
 
 You handle `git init` / `git add` / `git commit` yourself — this archive
 is just the file tree to commit.
@@ -55,7 +55,7 @@ git commit -m "Initial commit: Workshop 3 sample repo"
 - `npm run lint` and `npm run build` are stubs (they just print a message)
   — this is a demo repo, not a shippable app. Wire up real ESLint/Angular
   build commands when you adapt these files for an actual project repo.
-- For your real P-CIS repo, swap the Jest-based `npm test` in
+- For your real Angular repo, swap the Jest-based `npm test` in
   `CLAUDE.md` and `.claude/hooks/block-red-commit.sh` back to the real
   Angular command (`ng test --watch=false --browsers=ChromeHeadless`) —
   this sample uses Jest only so the demo runs without installing the full

@@ -4,7 +4,7 @@
 #
 # Claude Code PreToolUse hook: stops "git commit" from running when this
 # repo's test suite is red. Adapted for the Workshop 3 sample repo (Jest).
-# For the real P-CIS repo, change TEST_CMD to the Angular command noted
+# For a real Angular repo, change TEST_CMD to the Angular command noted
 # below.
 #
 # Exit 0 -> allow. Exit 2 -> block, stderr is shown to Claude as the reason.
@@ -35,7 +35,7 @@ cd "$PROJECT_DIR"
 
 # Sample repo (Jest):
 TEST_CMD="npm test"
-# Real P-CIS repo (Angular): swap to
+# Real Angular repo: swap to
 # TEST_CMD="npm test -- --watch=false --browsers=ChromeHeadless"
 
 TEST_LOG="$(mktemp)"

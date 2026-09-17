@@ -1,6 +1,6 @@
 # Plan: Add date-of-birth validation to client intake
 
-**Ticket:** PCIS-1042
+**Ticket:** WS3-1042
 **Owner:** (developer name)
 **Approach:** Add a check in `ClientIntakeService.validate()` that rejects
 a `dateOfBirth` in the future, in addition to the existing required-field

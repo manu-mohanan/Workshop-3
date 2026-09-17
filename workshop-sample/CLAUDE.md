@@ -12,7 +12,7 @@
 - Lint: `npm run lint` (stub in this sample repo — wire up ESLint for a real project)
 - Build: `npm run build` (stub in this sample repo — wire up your real build step)
 
-> For the real Opeeka P-CIS repo, use the actual Angular commands instead:
+> For your real Angular repo, use the actual Angular commands instead:
 > `ng serve`, `ng test --watch=false --browsers=ChromeHeadless`, `ng build --configuration production`.
 
 ## Folder map
