@@ -9,7 +9,7 @@ describe('ClientIntakeService', () => {
       lastName: 'Lovelace',
       dateOfBirth: '1815-12-10',
     });
-    expect(errors).toEqual([]);
+    expect(errors).toEqual(['ddddd']);
   });
 
   it('flags a missing first name', () => {
