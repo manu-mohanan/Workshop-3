@@ -1,5 +1,3 @@
-import { isFutureDate } from '../../shared/date-utils';
-
 export interface IntakeData {
   firstName: string;
   lastName: string;
@@ -24,8 +22,6 @@ export class ClientIntakeService {
     }
     if (!data.dateOfBirth?.trim()) {
       errors.push('dateOfBirth is required');
-    } else if (isFutureDate(data.dateOfBirth)) {
-      errors.push('dateOfBirth cannot be in the future');
     }
 
     return errors;
